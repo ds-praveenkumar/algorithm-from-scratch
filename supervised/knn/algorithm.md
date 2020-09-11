@@ -7,3 +7,7 @@
     - Get top k rows from the sorted array
     - Get the most frequent class of these rows
     - Return the predicted class
+
+
+    ### References
+    1. [link](https://www.analyticsvidhya.com/blog/2018/03/introduction-k-neighbours-algorithm-clustering/)
