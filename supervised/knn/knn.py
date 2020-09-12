@@ -46,7 +46,7 @@ class KNearestNeighbour:
         
     def predict(self, test_point):
         """
-
+            This method takes the test data point and predicts the most frequent class
         """
         dist_list = []
         for val in self.data_set:
