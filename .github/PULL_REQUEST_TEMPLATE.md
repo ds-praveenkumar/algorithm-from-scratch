@@ -1,7 +1,7 @@
 Tracker ID: #ADD LINK TO PIVOTAL STORY
 
 Unit tests completed?: 
-[] Yes
+[x] Yes
 [] No
 
 PR Branch #ADD LINK TO PR BRANCH
