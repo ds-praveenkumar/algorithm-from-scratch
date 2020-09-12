@@ -58,5 +58,5 @@ class KNearestNeighbour:
 if __name__ == "__main__":
     knn = KNearestNeighbour(2)
     knn.fit([1, 2, 3769, 67, 75, 7, 5 , 6, 7, 8])
-    test_point = 700767
+    test_point = 7007676
     print(f"test label:{test_point}, predicted label: {knn.predict(test_point)}")
