@@ -1,38 +1,17 @@
-# Description
+Tracker ID: #ADD LINK TO PIVOTAL STORY
 
-Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
+Unit tests completed?: 
+[] Yes
+[] No
 
-Fixes # (issue)
+PR Branch #ADD LINK TO PR BRANCH
 
-## Type of change
+Code Coverage & Build Info #ADD LINK TO JENKINS CONSOLE
 
-Please delete options that are not relevant.
+E2E Approved #ADD LINK TO PASSING E2E TESTS
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
+Windows Testing #HAS WINDOWS BEEN TESTED?
 
-# How Has This Been Tested?
+Related PR #ADD ANY RELATED PULL REQUESTS
 
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
-
-- [ ] Test A
-- [ ] Test B
-
-**Test Configuration**:
-* Firmware version:
-* Hardware:
-* Toolchain:
-* SDK:
-
-# Checklist:
-
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
-- [ ] New and existing unit tests pass locally with my changes
-- [ ] Any dependent changes have been merged and published in downstream modules
+UX Approved #ADD UX APPROVAL IF NEEDED
