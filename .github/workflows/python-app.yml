@@ -21,11 +21,9 @@ jobs:
       with:
         python-version: 3.8
 
-    - name: Labeler
-      uses: actions/labeler@2.2.0
-      
     - name: Actions Tagger
       uses: Actions-R-Us/actions-tagger@v2.0.1
+      
     - name: Cache
       uses: actions/cache@v2.1.1
       with:
