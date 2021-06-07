@@ -4,14 +4,4 @@ Unit tests completed?:
 [x] Yes
 [] No
 
-PR Branch #ADD LINK TO PR BRANCH
 
-Code Coverage & Build Info #ADD LINK TO JENKINS CONSOLE
-
-E2E Approved #ADD LINK TO PASSING E2E TESTS
-
-Windows Testing #HAS WINDOWS BEEN TESTED?
-
-Related PR #ADD ANY RELATED PULL REQUESTS
-
-UX Approved #ADD UX APPROVAL IF NEEDED
