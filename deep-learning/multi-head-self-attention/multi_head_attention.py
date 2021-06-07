@@ -1,40 +1,44 @@
-
+import torch.nn as nn
 import torch
-import torch.nn.functional as F  
-import math
+from .scaled_dot_product import scaled_dot_product
+class MultiHeadAttention(nn.Module):
 
-print("torch version ", torch.__version__)
+    def __init__( self, input_dim, embedding_dim, num_heads):
+        assert embedding_dim % num_heads == 0, "Embedding dimention must be 0 modulo of number of heads "
 
-def scaled_dot_product( query: torch.Tensor, key: torch.Tensor, value: torch.Tensor, mask=None):
-    """ computes scaled dot product for the provided inputs 
-        ARGS:
-        query:
-        key:
-        value:
-    """
-    key_dim = key.size()[-1]
-    atten_logits = torch.matmul( query, key.transpose(-2,-1) )
-    atten_logits = atten_logits / math.sqrt( key_dim)
-    if mask is not None:
-        atten_logits = atten_logits.masked_fill(mask == 0, 9e15)
-    attention = F.softmax(atten_logits, dim=-1)
-    values = torch.matmul( attention, value)
-    return attention, values
-        
+        self.empedding_dim = embedding_dim
+        self.num_heads = num_heads
+        self.head_dim = embedding_dim // num_heads
 
-if __name__ == "__main__":
-    query = torch.rand(3,2)
-    key = torch.rand(3,2)
-    value = torch.rand(3,2)
-    attention, values = scaled_dot_product( query=query,    
-                        key=key,
-                        value=value
-            )
-    print( "query:\n", query)
-    print( "key:\n", key)
-    print( "value:\n", value)
-    print("attention:\n", attention)
-    print("values:\n", values)
+        self.qkv_projection = nn.Linear( input_dim, 3 * embedding_dim)
+        self.output_project = nn.Linear( embedding_dim, embedding_dim)
 
-    
+    def _reset_parameter( self ):
+        nn.init.xavier_uniform_( self..qkv_projection.weight)
+        self.qkv_projection.bias.data.fill_(0)
+        nn.init.xavier_uniform_( self.output_project.weight)
+        self.output_project.bias.data.fill_(0)
+
+    def forword( self, x, mask=None, return_sequence=False):
+        batch_size, seq_length, embedding_dim = x.size()
+        qkv = self.qkv_projection(x)
+
+        # seperate qkv from iinear output 
+        qkv = qkv.reshape( batch_size, seq_length, self.num_heads, 3 * self.head_dim)
+        qkv = qkv.permute(0, 2, 1, 3)
+        q, k, v = qkv.chunk(3, dim=1)
+
+        # Determine value outputs
+        attention, values = scaled_dot_product(q,k,v, mask=mask)
+        values =    values.permute(0, 2, 1, 3)
+        values = values.reshape( batch_size, seq_length, embedding_dim )
+        output = self.output_project( values)
+
+        if return_sequence:
+            return attention, output
+        else:
+            output
+
+
+
 
