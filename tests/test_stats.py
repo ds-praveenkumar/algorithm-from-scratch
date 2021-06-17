@@ -5,10 +5,11 @@ from  pathlib import Path
 
 
 
-class TestStatsMethods(unittest.TestCase):
+class TestStatsMethods( unittest.TestCase ):
     df = pd.read_csv('Smoker_R.csv')
     df.head()
 
     def test_zscore(self):
-        z_score, pval = 
-        self.assertEqual(  )
+        # z_score, pval = 
+        # self.assertEqual(  )
+        pass
